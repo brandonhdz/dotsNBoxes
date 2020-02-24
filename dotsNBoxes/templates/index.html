@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Dots n Boxes</title>
+    <script src="https://cdn.jsdelivr.net/npm/p5@0.10.2/lib/p5.js"></script>
+    <script src="../static/dotsNBoxes.js"></script>
+    <link rel="stylesheet" href="../static/styles.css"></link>
+</head>
+<body>
+    <div id="header">
+        <h1>Welcome to Dots N Boxes</h1>
+        <p>Play against the AI</p>
+    </div>
+
+    <div id="run">
+        <form id="game_form">
+            <p>Please select a grid size:
+                <select id="selSize">
+                    <option value="2">2x2</option>
+                    <option value="3">3x3</option>
+                    <option value="4">4x4</option>
+                    <option value="5">5x5</option>
+                </select>
+                <input type="button" id="btnRun" value="Play!" onclick="requestRender()">
+            </p>
+        </form>
+    </div>
+
+    <div id="game_area" style="display: none;">
+        <h2 id="display_size"></h2>
+        <h3 id="score">Score: AI {{ AIScore }} | Player {{ playerScore }}</h3>
+        <p id="test"></p>
+        <div id="grid_area"></div>
+
+    </div>
+
+</body>
+</html>
