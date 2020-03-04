@@ -46,12 +46,10 @@ class Data:
     def isWithinRange(self, edge, coord):
         # TODO PROBLEM WITH BOUNDING BOX
         # move to tile class??
-        print(coord)
         loBoundX = edge[0][0] - self.gridSpace.clickRange
         hiBoundX = edge[1][0] + self.gridSpace.clickRange
         loBoundY = edge[0][1] - self.gridSpace.clickRange
         hiBoundY = edge[1][1] + self.gridSpace.clickRange
-        print(edge, loBoundX, hiBoundX, loBoundY, hiBoundY)
         if (loBoundX < coord[0] < hiBoundX and loBoundY < coord[1] < hiBoundY):
             # make it unavailable
             edge[2] = self.currentTurn
