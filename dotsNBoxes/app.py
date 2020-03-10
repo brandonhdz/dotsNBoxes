@@ -26,37 +26,33 @@ def getAppData():
                                           'player': metaData.playerScore}},
                     'tiles': metaData.jsonifyTiles()})
 
-@app.route("/appData/lambda<delta>", defaults={"newData": None})
-@app.route("/appData/lambda<delta>/<newData>")
-def requestLambda(delta, newData):
+@app.route("/appData/lambda")
+def requestLambda():
     """
+    Generic route that calls an internal method
     Usage:
-    http://127.0.0.1:5000/appData/update<updateGridSize>/<5>
+    http://127.0.0.1:5000/appData/lambda?method=updateGridSize&delta=5
 
-    :param delta: The Data function to be called
-    :param newData: Data to be passed to delta
+    method: The Data function to be called
+    delta: Data to be passed to delta
     :return: json of appData
     """
-    delta = getattr(metaData, delta[1:-1])
-    if newData is not None:
-        delta(newData[1:-1])
-    else:
-        delta()
-    return redirect("/appData", code=302)
+    method = request.args.get('method')
+    delta = request.args.get('delta')
 
-@app.route("/appData/requestLine<coordinate>")
-def requestLine(coordinate):
-    """
-    Checks if the coordinate given is within a valid line
-    :param coordinate: The requested point to see if
-    there exists an available line
-    :return:
-    """
-    coordinate = (coordinate[1:-1]).split(',')
-    coordinate[0] = float(coordinate[0])
-    coordinate[1] = float(coordinate[1])
-    edgeAvailable = metaData.requestEdge(coordinate)
-    # TODO remove this variable FOR TESTING
-    if edgeAvailable:
-        return "true"
-    return "false"
+    if method == 'updateGridSize' and delta is not None:
+        method = getattr(metaData, method)
+        method(delta)
+        return redirect("/appData", code=302)
+
+    elif method == 'requestEdge' and delta is not None:
+        coordinate = delta.split(',')
+        coordinate[0] = float(coordinate[0])
+        coordinate[1] = float(coordinate[1])
+        method = getattr(metaData, method)
+        edgeAvailable = method(coordinate)
+        if edgeAvailable:
+            return "true"
+        return "false"
+    else:
+        return redirect("/appData", code=405)
