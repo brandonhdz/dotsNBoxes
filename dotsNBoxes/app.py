@@ -4,6 +4,8 @@ from .appData import Data
 app = Flask(__name__)
 app.config['DEBUG'] = True
 
+# The entire game state is accessed and updated via metaData
+# initialized bellow as the Data class
 metaData = None
 
 @app.route("/")
@@ -18,6 +20,10 @@ def index():
 
 @app.route("/appData")
 def getAppData():
+    """
+    Used to be called by the front end via an AJAX call as an endpoint to render the grid.
+    :return:JSON of the game state see appData.py for
+    """
     return jsonify({'session': {'inSession': metaData.inSession,
                                 'turn': metaData.currentTurn,
                                 'scale': metaData.getScale(),
@@ -35,7 +41,7 @@ def requestLambda():
 
     method: The Data function to be called
     delta: Data to be passed to delta
-    :return: json of appData
+    :return: json of appData by redirection
     """
     method = request.args.get('method')
     delta = request.args.get('delta')
