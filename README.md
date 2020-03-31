@@ -3,19 +3,19 @@
 *IN DEVELOPMENT*
 
 A recreation of the game Dots N Boxes. Game concept can be read [here](https://en.wikipedia.org/wiki/Dots_and_Boxes).
-##Getting Started
+## Getting Started
 
-###Technologies
+### Technologies
 The following technologies are used to run the Web App:
 * [P5.js](https://p5js.org/) to render the grid
 * [AJAX](https://api.jquery.com/category/ajax/) to retrieve game state data 
 * [Flask Framework](https://flask.palletsprojects.com/en/1.1.x/) for creating routes and managing communication between
 the Back-End and Front-End
 
-###Prerequisites
+### Prerequisites
 * python-3.6.0 or later
 
-###Installing
+### Installing
 The following is set up within the Windows Terminal:
 
 `>git clone https://github.com/brandonhdz/softwareProjects.git`
@@ -30,7 +30,7 @@ The following is set up within the Windows Terminal:
       ```
     *Skip FLASK_ENV to disable debugging*
 
-###Running Locally
+### Running Locally
 ```>flask run```
 
 Expected Output:
@@ -53,7 +53,7 @@ to view the routes and use cases*
 
 In the root page the user is prompted to to select a grid size to initialize the game
 
-###Game State
+### Game State
 To view the current game state data open another tab and navigate to:
 
 [http://127.0.0.1:5000/appData](http://127.0.0.1:5000/appData)
@@ -81,14 +81,14 @@ The above is query computationally equivalent to:
 metaData.updateGridSize(newSize)
 ```
 
-###AI Functionality
+### AI Functionality
 
 The computer is optimizes the next turn by utilizing the MiniMax algorithm
 
 See [heuristic.py](https://github.com/brandonhdz/dotsNBoxes/blob/dev/dotsNBoxes/heuristic.py)
 *(IN DEVELOPMENT)*
 
-###Looking Forward
+### Looking Forward
 
 * Finish AI Functionality
 * Memory Optimization
