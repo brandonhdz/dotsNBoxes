@@ -18,7 +18,7 @@ the Back-End and Front-End
 ### Installing
 The following is set up within the Windows Terminal:
 
-`>git clone https://github.com/brandonhdz/softwareProjects.git`
+`>git clone https://github.com/brandonhdz/dotsNBoxes.git`
 1) Set up venv
 2) Install Python modules:
     
@@ -48,7 +48,7 @@ On your preferred browser view the web app locally (Chrome is recommended):
 
 [http://127.0.0.1:5000/](http://127.0.0.1:5000/)
 
-*See [app.py](https://github.com/brandonhdz/dotsNBoxes/blob/dev/dotsNBoxes/app.py)
+*See [app.py](https://github.com/brandonhdz/dotsNBoxes/blob/master/dotsNBoxes/app.py)
 to view the routes and use cases*
 
 In the root page the user is prompted to to select a grid size to initialize the game
@@ -59,7 +59,7 @@ To view the current game state data open another tab and navigate to:
 [http://127.0.0.1:5000/appData](http://127.0.0.1:5000/appData)
 
 The route is activated by the `getAppData()` method within
-[app.py](https://github.com/brandonhdz/dotsNBoxes/blob/dev/dotsNBoxes/app.py)
+[app.py](https://github.com/brandonhdz/dotsNBoxes/blob/master/dotsNBoxes/app.py)
 which is used as a JSON endpoint for the current game state.
 
 Furthermore, note the Get method when the grid is initialized:
@@ -67,7 +67,7 @@ Furthermore, note the Get method when the grid is initialized:
 `127.0.0.1 - - [30/Mar/2020 23:22:12] "?[32mGET /appData/lambda?method=updateGridSize&delta=2 HTTP/1.1?[0m" 302 -`
 
 See `resizeMeta()` under 
-[dotsNBoxes.js](https://github.com/brandonhdz/dotsNBoxes/blob/dev/dotsNBoxes/static/dotsNBoxes.js).
+[dotsNBoxes.js](https://github.com/brandonhdz/dotsNBoxes/blob/master/dotsNBoxes/static/dotsNBoxes.js).
 It calls a the `lambdaRequest()` route which is queried within the `resizeMeta(newSize)` function:
 
 `url : "/appData/lambda?method=updateGridSize&delta=" + newSize ,`
@@ -85,7 +85,7 @@ metaData.updateGridSize(newSize)
 
 The computer is optimizes the next turn by utilizing the MiniMax algorithm
 
-See [heuristic.py](https://github.com/brandonhdz/dotsNBoxes/blob/dev/dotsNBoxes/heuristic.py)
+See [heuristic.py](https://github.com/brandonhdz/dotsNBoxes/blob/master/dotsNBoxes/heuristic.py)
 *(IN DEVELOPMENT)*
 
 ### Looking Forward
