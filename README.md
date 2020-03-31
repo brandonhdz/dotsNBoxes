@@ -53,7 +53,7 @@ to view the routes and use cases*
 
 In the root page the user is prompted to to select a grid size to initialize the game
 
-### Game State
+## Game State
 To view the current game state data open another tab and navigate to:
 
 [http://127.0.0.1:5000/appData](http://127.0.0.1:5000/appData)
