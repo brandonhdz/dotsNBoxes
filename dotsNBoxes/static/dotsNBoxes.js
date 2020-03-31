@@ -52,7 +52,7 @@ function requestBoardData(){
 function resizeMeta(newSize){
     $.ajax({
         type : "GET",
-        url : "/appData/lambda<updateGridSize>/<" + newSize +">" ,
+        url : "/appData/lambda?method=updateGridSize&delta=" + newSize ,
         dataType: "json",
         contentType: 'application/json;charset=UTF-8',
         success: function (result) {
@@ -183,7 +183,7 @@ function requestLine(mX, mY){
     var coordinate = [mX, mY];
     $.ajax({
         type : "GET",
-        url : "/appData/requestLine<" + coordinate + ">",
+        url : "/appData/lambda?method=requestEdge&delta=" + coordinate,
         dataType: "json",
         contentType: 'application/json;charset=UTF-8',
         success: function (result) {

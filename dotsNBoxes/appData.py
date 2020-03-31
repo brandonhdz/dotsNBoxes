@@ -2,7 +2,11 @@ from .grid import Grid
 
 
 class Data:
-
+    """
+    Data holds the entire game state.
+    It functions as the remote to modify or request Grid() data
+    TODO Refactor to inherit Grid()
+    """
     def __init__(self):
         self.AIScore = 0
         self.playerScore = 0
@@ -13,13 +17,25 @@ class Data:
         self.gridSpace = Grid()
 
     def updateGridSize(self, newSize):
-        # Update grid size
+        """
+        New size for the grid which is passed via the resizeMeta() AJAX call
+        in dotsNBoxes.js
+
+        self.gridSpace is updated with a newly generated board via the
+        Grid.resize() method within grid.py
+        :param newSize: Integer [2-5]
+        :return: None
+        """
         self.gridSize = self.gridSpace.resize(int(newSize))
 
     def getGridSize(self):
         return self.gridSpace.gridSize
 
     def jsonifyTiles(self):
+        """
+        Via grid.py methods the data is structured in to a list of dictionaries for all the tiles
+        :return: list of Tiles
+        """
         tiles = [[{'conquered': self.gridSpace.getTileConq()[x][y],
                    'value': self.gridSpace.getTileVals()[x][y],
                    'edges': self.gridSpace.getTileEdges()[x][y]
@@ -50,7 +66,8 @@ class Data:
         hiBoundX = edge[1][0] + self.gridSpace.clickRange
         loBoundY = edge[0][1] - self.gridSpace.clickRange
         hiBoundY = edge[1][1] + self.gridSpace.clickRange
-        if (loBoundX < coord[0] < hiBoundX and loBoundY < coord[1] < hiBoundY):
+
+        if loBoundX < coord[0] < hiBoundX and loBoundY < coord[1] < hiBoundY:
             # make it unavailable
             edge[2] = self.currentTurn
             return True
@@ -58,7 +75,8 @@ class Data:
             return False
 
     def initAI(self):
-        print('call AI')
+        #TODO
+        print('initialize heuristic.py for COM move')
 
     def getScale(self):
         return self.gridSpace.scale
