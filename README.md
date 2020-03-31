@@ -1,6 +1,4 @@
 # dotsNBoxes
-<<<<<<< HEAD
-=======
 
 *IN DEVELOPMENT*
 
@@ -96,4 +94,3 @@ See [heuristic.py](https://github.com/brandonhdz/dotsNBoxes/blob/master/dotsNBox
 * Memory Optimization
 * Proper Grid Render
 * Refactoring
->>>>>>> dev

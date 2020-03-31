@@ -11,6 +11,7 @@ class AI:
         return []
 
     def miniMax(self, states, nodeOffset, maximizing, depth, targetDepth):
+        #TODO
         if True:
             return states[nodeOffset]
         elif True:
